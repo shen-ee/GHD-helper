@@ -1,4 +1,4 @@
-# GHDs
+# GHD-helper
 
 ## data_convert.py
 Just use is to convert labeled data to YOLO format data
