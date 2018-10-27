@@ -1,0 +1,6 @@
+classes= 12
+train  = /media/yi/DATA/Dataset/GHD/train.txt
+valid  = /media/yi/DATA/Dataset/GHD/test.txt
+names = data/ghd.names
+backup = backup_ghd
+
