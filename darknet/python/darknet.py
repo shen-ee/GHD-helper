@@ -1,6 +1,8 @@
 from ctypes import *
 import math
 import random
+import cv2
+import os
 
 def sample(probs):
     s = sum(probs)
@@ -140,7 +142,29 @@ def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
     res = sorted(res, key=lambda x: -x[1])
     free_image(im)
     free_detections(dets, num)
+    
     return res
+
+def detect_video(net, meta, video, thresh=.5, hier_thresh=.5, nms=.45):
+    for filename in os.listdir(video):
+        image = video + filename
+        outputfilename = video + "output_raw/" + filename + ".txt"
+        res = detect(net, meta, image)
+        output = open(outputfilename,"w")
+        for i in res:
+            output.write(str(i)+"\n")
+
+    #cap = cv2.VideoCapture(video)
+    #while(1):
+    # get a frame
+        #ret,frame = cap.read()
+        #predict = detect_frame(net,meta,frame)
+    # show a frame
+        #cv2.imshow("capture", frame)
+        #if cv2.waitKey(30) & 0xFF == ord('q'):
+        #    break
+
+    
     
 if __name__ == "__main__":
     #net = load_net("cfg/densenet201.cfg", "/home/pjreddie/trained/densenet201.weights", 0)
@@ -148,12 +172,11 @@ if __name__ == "__main__":
     #meta = load_meta("cfg/imagenet1k.data")
     #r = classify(net, meta, im)
     #print r[:10]
-    net = load_net("cfg/yolov3-ghd.cfg", "backup_ghd/yolov3-ghd_final.weights", 0)
+    net = load_net("cfg/yolov3-ghd.cfg", "backup/yolov3-ghd_final.weights", 0)
     meta = load_meta("cfg/ghd.data")
-    r = detect(net, meta, "data/ghd.jpg")
+    # r = detect(net, meta, "data/ghd.jpg")
     # print r
-    for i in r:
-        print i
-
+    # for i in r:
+        # print i
+    detect_video(net,meta,"/media/yi/DATA/Dataset/GHD/Videos/17/")
     
-
