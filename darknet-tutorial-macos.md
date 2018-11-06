@@ -1,6 +1,6 @@
-##darknet-tutorial-MacOS
+## darknet-tutorial-MacOS
 
-####Single image prediction
+#### Single image prediction
 
 1. download repo: https://github.com/AlexeyAB/darknet
 
