@@ -25,7 +25,7 @@
 
    ```bash
    cd /change-this-to-your-path/GHD-helper-master
-   cp -r darknt/* /change-this-to-your-path/darknet-master
+   cp -r darknet/* /change-this-to-your-path/darknet-master
    ```
 
 8. come back to the folder in step2, try to do a prediction:
