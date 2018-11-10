@@ -1,0 +1,21 @@
+table{
+  width: 60%;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.demo {
+  width:60%; 
+  height:auto;
+}
+
+.middle{
+  text-align: -webkit-center;
+}
+
+.icon{
+  height: 40px;
+  width: 40px;
+}
