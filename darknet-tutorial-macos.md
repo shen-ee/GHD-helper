@@ -32,7 +32,7 @@
 
    ```bash
    cd /change-this-to-your-path/darknet-master
-   /darknet detector test cfg/ghd.data cfg/yolov3-ghd.cfg yolov3-ghd_final.weights data/test.jpg
+   ./darknet detector test cfg/ghd.data cfg/yolov3-ghd.cfg yolov3-ghd_final.weights data/test.jpg
    ```
 
 9. then a file named predictions.png should be genrated.
