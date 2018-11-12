@@ -1,0 +1,16 @@
+set -e
+
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+VIDEONAME=$1;
+VIDEOTYPE=.mp4 
+
+
+mkdir data/$VIDEONAME
+
+ffmpeg -i data/${VIDEONAME}${VIDEOTYPE} data/$VIDEONAME/frames_%05d.jpg
+
+echo Video clips generated in $SCRIPTDIR/data/$VIDEONAME
+
+mkdir $SCRIPTDIR/data/$VIDEONAME/output_raw
+
+python2 $SCRIPTDIR/python/darknet.py -v $SCRIPTDIR/data/$VIDEONAME
