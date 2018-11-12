@@ -13,4 +13,12 @@ echo Video clips generated in $SCRIPTDIR/data/$VIDEONAME
 
 mkdir $SCRIPTDIR/data/$VIDEONAME/output_raw
 
-python2 $SCRIPTDIR/python/darknet.py -v $SCRIPTDIR/data/$VIDEONAME
+python2 $SCRIPTDIR/python/darknet.py -v $SCRIPTDIR/data/$VIDEONAME/
+
+mkdir $SCRIPTDIR/data/${VIDEONAME}webpage
+
+python2 $SCRIPTDIR/python/output_convert.py -i $SCRIPTDIR/data/$VIDEONAME/output_raw/ -o $SCRIPTDIR/data/${VIDEONAME}webpage/
+
+cp $SCRIPTDIR/data/${VIDEONAME}webpage/* $SCRIPTDIR/videoreport/
+
+./darknet detector demo cfg/ghd.data cfg/yolov3-ghd.cfg backup/test.weights data/${VIDEONAME}${VIDEOTYPE}
