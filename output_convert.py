@@ -11,6 +11,7 @@ import os
 from os import walk, getcwd
 from PIL import Image
 from shutil import copyfile
+import argparse
 
 classes = ["stump_gunner", "snowflake", "tesla", "laser", "dj", "teleport", "tina", "petey", "compy", "bruno", "red_boss", "Bomb"]
 monster_classes = ["tina", "petey", "compy", "bruno", "red_boss"]
@@ -18,9 +19,18 @@ tower_classes = ["stump_gunner", "snowflake", "tesla", "laser", "dj", "teleport"
 power_tower = {"stump_gunner":1, "snowflake":1.5, "tesla":2, "laser":2, "dj":2.5, "teleport":1.3}
 power_monster = {"tina":1, "petey":0.5, "compy":0.5, "bruno":2, "red_boss":5}
 """ Configure Paths"""   
-wd = getcwd()
-mypath = wd + "/videoreport/1_17_2/"
-outpath = wd + "/videoreport/"
+parser = argparse.ArgumentParser(description="REPLACE WITH DESCRIPTION",formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument("--inputpath", "-i", type=str, default = "data/1-17/" ,help="raw input file")
+parser.add_argument("--outputpath", "-o", type=str, default = "data/1-17/" ,help="raw input file")
+try:
+    args = parser.parse_args()
+except IOError as msg:
+    parser.error(str(msg))
+# wd = getcwd()
+
+
+mypath = args.inputpath
+outpath = args.outputpath
 outfile = "data.csv"
 outfile2 = "number_t_m.csv"
 outfile3 = "power_t_m.csv"
