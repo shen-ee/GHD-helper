@@ -1,0 +1,60 @@
+body{ margin:0%}
+header{ color: rgba(32, 32, 32, 0.54); padding:0.5em; padding-left:1.5em}
+nav{ padding:0.5em 1.5em }
+h3{ padding-left:2em; font-family:Roboto,sans-serif}
+p{ padding-left:4em; padding-right:1.8em}
+table{ margin:2% 5% ; margin-top: 20px;  border-collapse: collapse; width: 90%;}
+a{ target:_blank;}
+div.nav_div{ background-color:rgb(65, 142, 243); padding:1em; color: white; position:sticky; top:0}
+
+th{ height: 40px; background-color:rgb(65, 142, 243);color:white; width: 35%}
+th, td {
+padding: 10px;
+text-align: left;
+border-bottom: 1px solid #ddd;}
+tr:hover {background-color: #f5f5f5;}
+
+rect.bordered {
+    stroke: #E6E6E6;
+    stroke-width: 2px;
+}
+
+body {
+    font-size: 9pt;
+    font-family: Consolas, courier;
+}
+
+text.axis {
+    fill: #000;
+}
+
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+.bar {
+    fill: steelblue;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.legend line {
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+form {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+/* #scatter .scatterxaxis text{display: none;} */
+
+#slope .slopeaxis text{font-size: 20px;}
+#slope .slopeaxis line{stroke: white;}
+#slope .slopeaxis path{stroke: white;}
