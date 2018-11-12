@@ -3,6 +3,7 @@ import math
 import random
 import cv2
 import os
+import argparse
 
 def sample(probs):
     s = sum(probs)
@@ -167,16 +168,24 @@ def detect_video(net, meta, video, thresh=.5, hier_thresh=.5, nms=.45):
     
     
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="REPLACE WITH DESCRIPTION",formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+    parser.add_argument("--video", "-v", type=str, default = "data/1-17/" ,help="video file")
+    try:
+        args = parser.parse_args()
+    except IOError as msg:
+        parser.error(str(msg))
+
+    video_path = args.video
     #net = load_net("cfg/densenet201.cfg", "/home/pjreddie/trained/densenet201.weights", 0)
     #im = load_image("data/wolf.jpg", 0, 0)
     #meta = load_meta("cfg/imagenet1k.data")
     #r = classify(net, meta, im)
     #print r[:10]
-    net = load_net("cfg/yolov3-ghd.cfg", "backup/yolov3-ghd_final.weights", 0)
+    net = load_net("cfg/yolov3-ghd.cfg", "backup/test.weights", 0)
     meta = load_meta("cfg/ghd.data")
     # r = detect(net, meta, "data/ghd.jpg")
     # print r
     # for i in r:
         # print i
-    detect_video(net,meta,"/media/yi/DATA/Dataset/GHD/Videos/17/")
+    detect_video(net,meta,video_path)
     
