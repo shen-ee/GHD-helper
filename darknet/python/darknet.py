@@ -148,12 +148,13 @@ def detect(net, meta, image, thresh=.5, hier_thresh=.5, nms=.45):
 
 def detect_video(net, meta, video, thresh=.5, hier_thresh=.5, nms=.45):
     for filename in os.listdir(video):
-        image = video + filename
-        outputfilename = video + "output_raw/" + filename + ".txt"
-        res = detect(net, meta, image)
-        output = open(outputfilename,"w")
-        for i in res:
-            output.write(str(i)+"\n")
+        if "output" not in filename :
+            image = video + filename
+            outputfilename = video + "output_raw/" + filename + ".txt"
+            res = detect(net, meta, image)
+            output = open(outputfilename,"w")
+            for i in res:
+                output.write(str(i)+"\n")
 
     #cap = cv2.VideoCapture(video)
     #while(1):
@@ -189,3 +190,4 @@ if __name__ == "__main__":
         # print i
     detect_video(net,meta,video_path)
     
+
