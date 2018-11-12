@@ -1,5 +1,6 @@
 import webbrowser
 import os
+import csv
 
 html = '''
 <!DOCTYPE html>
@@ -28,7 +29,7 @@ html = '''
             <td>{num_bruno}</td>
             <td>{num_compy}</td>
             <td>{num_tina}</td>
-            <td>{num_petet}</td>
+            <td>{num_petey}</td>
           </tr>
           <tr>
               <th>Towel</th>
@@ -53,20 +54,23 @@ html = '''
 '''
 
 def gen_html():
-  final = html.format(img_name="img/demo.png",
-                      num_bruno=1,
-                      num_compy=2,
-                      num_tina=3,
-                      num_petet=4,
-                      num_teleport=1,
-                      num_tesla=2,
-                      num_laser=3,
-                      num_dj=4)
-  output_file = open('output.html', 'w')
-  output_file.write(final)
-  output_file.close()
-  url = os.path.abspath(output_file.name)
-  webbrowser.open('file://' + url, new=2)
+  with open('number.csv', mode='r') as infile:
+    reader = csv.reader(infile)
+    mydict = {rows[0]:rows[1] for rows in reader}
+    final = html.format(img_name="img/demo.png",
+                        num_bruno = int(mydict['bruno']) if 'bruno' in mydict else 0,
+                        num_compy = int(mydict['compy']) if 'compy' in mydict else 0,
+                        num_tina = int(mydict['tina']) if 'tina' in mydict else 0,
+                        num_petey = int(mydict['petey']) if 'petey' in mydict else 0,
+                        num_teleport = int(mydict['teleport']) if 'teleport' in mydict else 0,
+                        num_tesla = int(mydict['tesla']) if 'tesla' in mydict else 0,
+                        num_laser = int(mydict['laser']) if 'laser' in mydict else 0,
+                        num_dj = int(mydict['dj']) if 'dj' in mydict else 0)
+    output_file = open('output.html', 'w')
+    output_file.write(final)
+    output_file.close()
+    url = os.path.abspath(output_file.name)
+    webbrowser.open('file://' + url, new=2)
 
 def main():
   gen_html()
