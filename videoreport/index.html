@@ -1,28 +1,86 @@
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Visual Report</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <script src="https://use.fontawesome.com/13bd6b8e57.js"></script>
+        <script src="https://bl.ocks.org/syntagmatic/raw/3341641/render-queue.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
-    <body>
-        <div>
-            <header>USC GamePipeLaboratory</header>
+    <body id="page-top">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+                <div class="container">
+                    <a class="navbar-brand js-scroll-trigger" href="#page-top">Visual Report</a>
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                        Menu
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="#head1">Number Contrast</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link js-scroll-trigger" href="#head2">Power Contrast</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    <!-- Intro Header -->
+    <header class="masthead">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <h1 class="brand-heading">Visual Report</h1>
+                        <p class="intro-text">The data in one level is presented here! You can see the number change of monster and tower through the whole level.
+                            <br>Let's explore!</p>
+                        <a href="#head1" class="btn btn-circle js-scroll-trigger">
+              <i class="fa fa-angle-double-down animated"></i>
+            </a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="nav_div">
-            <nav >Video Report</nav>
-        </div>
-        <h1>Number Contrast of Monsters and Towers</h1>
+    </header>
+        <section class="content-section text-center">
+        <h1 id="head1">Number Contrast of Monsters and Towers</h1>
                 
         <div id="chart">
         </div>
+        </section>
+        <section class="content-section text-center">
+        <h1 id="head2">Power Contrast of Monsters and Towers</h1>
 
-        <h1>Power Contrast of Monsters and Towers</h1>
-
-        <div id="chart2">
+        <div id="chart2" class="text-center">
         </div>
+        </section>
+
         <script type="text/javascript" src="viz.js"></script>
+        <section id="info" class="content-section text-center" style="background-color: #000">
+        <div id="info" class="teaminfo" style="color: white">
+            <h2>Project Information</h2>
+            <p>The data is extracted by YOLO from game-play video of Go Home Dinosaur 
+                <br>and reorganize by Python into CSV, then D3 is used to visulize.</p>
+            <h2>About US</h2>
+            <p>We are from USC Viterbi School of Engineering
+            <br>Francesco: galletti@usc.edu | Yi Shen: shenyi@usc.edu
+            <br>Yuning: zhuyunin@usc.edu | Yuchong: yuchongy@usc.edu
+            <br>Ramya: rnlakshm@usc.edu | Keerthi:keerthivgopal@gmail.com</p>
+        </div>
+        </section>
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+        <script src="js/homepage.js"></script>
     </body>
 </html>
